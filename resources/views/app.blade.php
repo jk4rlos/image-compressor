@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  @class(['dark' => ($appearance ?? 'system') == 'dark'])>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.guest')
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
+	@include('components.header')
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<main class="py-10">
+		<div class="max-w-3xl mx-auto text-center px-4">
+			<h2 class="text-3xl font-extrabold mb-2">Compressão de imagens simples e rápida</h2>
+			<p class="text-gray-600 mb-6">Escolha o tamanho alvo (KB) e obtenha a imagem comprimida com perda mínima de qualidade.</p>
+		</div>
 
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+		@include('components.compressor')
+	</main>
 
-        @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
-        @inertiaHead
-    </head>
-    <body class="font-sans antialiased">
-        @inertia
-    </body>
-</html>
+@endsection
+
+@section('script')
+@endsection
